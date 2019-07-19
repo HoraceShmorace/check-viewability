@@ -48,29 +48,20 @@ const checkViewability = function(selector, percentage = 50, viewport = document
   
   if (!element) return getReturnValue({... returnTemplate})
 
-  const {
-    x: elL,
-    y: elT,
-    width: elW,
-    height: elH,
-  } = element.getBoundingClientRect()
+  const { x: elL, y: elT, width: elW, height: elH } = element.getBoundingClientRect()
   const elR = elL + elW
   const elB = elT + elH
   const elementArea = elW * elH
   const { display, visibility, opacity } = getComputedStyle(element, null)
  
-  if (display === 'none' || visibility === 'hidden' || opacity < 0.02 || elementArea < 1) return getReturnValue({
-    ...returnTemplate,
-    element
-  });
+  if (display === 'none' || visibility === 'hidden' || opacity < 0.02 || elementArea < 1) 
+    return getReturnValue({
+      ...returnTemplate,
+      element
+    });
                                                                      
   const viewportElement = selectElement(viewport)
-  const {
-    x: vpX,
-    y: vpY,
-    width: vpW,
-    height: vpH,
-  } = viewportElement.getBoundingClientRect()
+  const { x: vpX, y: vpY, width: vpW, height: vpH } = viewportElement.getBoundingClientRect()
   const vpT = max(vpX, 0)
   const vpL = max(vpY, 0)
   const vpR = min(vpL + vpW, window.innerWidth)
