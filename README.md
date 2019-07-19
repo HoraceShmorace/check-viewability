@@ -39,7 +39,7 @@ const handler = () => { window.doViewabilityCheck = true }
 window.addEventListener('scroll', handler)
 window.addEventListener('resize', handler)
 
-const scrollChecker = setInterval(() => {
+setInterval(() => {
   if (!window.doViewabilityCheck) return
   
   window.doViewabilityCheck = false
