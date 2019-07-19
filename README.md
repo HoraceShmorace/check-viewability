@@ -52,7 +52,7 @@ const scrollChecker = setInterval(() => {
     el.innerText = elIsViewable ? 'VIEWABLE!': 'not viewable'
 
     // Another use case would be to display an ad in the element only once it's viewable.
-    // googletag.display("el1");
+    // googletag.display(selector);
 
   }))
 }, 200)
