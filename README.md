@@ -1,6 +1,6 @@
 # checkViewability
 
-A simple function that calculates whether a certain percentage of a specified HTML element is viewable with a given viewport (i.e., another HTML element, which itself must be viewable within the visible bounds of the current window).
+A simple vanilla JavaScript function that calculates whether a certain percentage of a specified HTML element is viewable within a given viewport (i.e., another HTML element, which itself must be viewable within the visible bounds of the current window).
 
 ## Usage
 `checkViewability(CSSSelector||HTMLElement)`
@@ -24,28 +24,32 @@ checkViewability(element, minimumViewablePercentage, viewport)
 Trigger a side effect once an element is in view. The demonstrated side effect injects text into the tracked element. Another example would be to inject an ad into the div only once the div is viewable.
 
 ```
-window.addEventListener('scroll', () => {
-    window.isScrolling = true
-})
+const handler = () => { window.doViewabilityCheck = true }
+
+window.addEventListener('scroll', handler)
+window.addEventListener('resize', handler)
+
+const scrollChecker = setInterval(() => {
+  if (!window.doViewabilityCheck) return
+  
+  window.doViewabilityCheck = false
+
+  window.elementsToTrack.forEach(selector => window.requestAnimationFrame(() => {
+    const elIsViewable = checkViewability(selector) // imported into the pen in JS Settings
+    const el = document.querySelector(selector)
+
+    // Do a DOM side effect
+    el.innerText = elIsViewable ? 'VIEWABLE!': 'not viewable'
+
+    // Another use case would be to display an add in the div only once it's viewable.
+    // googletag.display("el1");
+
+  }))
+}, 200)
 
 const trackViewability = selector => Array.isArray(window.elementsToTrack) 
   ? window.elementsToTrack.push(selector)
   : window.elementsToTrack = [selector]
-
-const scrollChecker = setInterval(() => {
-  if (!window.isScrolling) return
-   
-  window.isScrolling = false
-  
-  window.elementsToTrack.forEach(selector => {
-    const elIsViewable = checkViewability(selector) // imported into the pen in JS Settings
-    
-    window.requestAnimationFrame(() => {
-      const el = document.querySelector(selector)
-      el.innerText = elIsViewable ? 'VIEWABLE!': 'not viewable'      
-    })
-  })
-}, 200)
 
 trackViewability('#el1')
 ```
