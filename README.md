@@ -63,4 +63,6 @@ const trackViewability = selector => Array.isArray(window.elementsToTrack)
 
 trackViewability('#el1')
 </script>
+...
+<div id="el1 />
 ```
