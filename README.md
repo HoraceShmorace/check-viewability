@@ -7,10 +7,14 @@ A simple function that calculates whether a certain percentage of a specified HT
 
 **Example**
 ```
+// Simple
 checkViewability('#someElementId')
 checkViewability('.any .css .selector > div')
+
+// Passing element, percentage, and viewport
 checkViewability('#someElementId', 75, '#someParentElementId')
 
+// Passing element and viewport as object references to HTML elements
 const element = document.querySelector('#someElementId')
 const viewport = document.querySelector('#someParentElementId')
 const minimumViewablePercentage = 90
