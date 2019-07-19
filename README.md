@@ -32,6 +32,8 @@ checkViewability(element, minimumViewablePercentage, viewport)
 Trigger a side effect once an element is in view. The demonstrated side effect injects text into the tracked element. Another example would be to inject an ad into an element only once the element is viewable.
 
 ```
+<script src="checkViewability.js"></script>
+<script>
 const handler = () => { window.doViewabilityCheck = true }
 
 window.addEventListener('scroll', handler)
@@ -60,4 +62,5 @@ const trackViewability = selector => Array.isArray(window.elementsToTrack)
   : window.elementsToTrack = [selector]
 
 trackViewability('#el1')
+</script>
 ```
