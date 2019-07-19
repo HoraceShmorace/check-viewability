@@ -29,7 +29,7 @@ const minimumViewablePercentage = 90
 checkViewability(element, minimumViewablePercentage, viewport)
 ```
 ## Use Case
-Trigger a side effect once an element is in view. The demonstrated side effect injects text into the tracked element. Another example would be to inject an ad into a div only once the div is viewable.
+Trigger a side effect once an element is in view. The demonstrated side effect injects text into the tracked element. Another example would be to inject an ad into an element only once the element is viewable.
 
 ```
 const handler = () => { window.doViewabilityCheck = true }
@@ -49,7 +49,7 @@ const scrollChecker = setInterval(() => {
     // Do a DOM side effect
     el.innerText = elIsViewable ? 'VIEWABLE!': 'not viewable'
 
-    // Another use case would be to display an add in the div only once it's viewable.
+    // Another use case would be to display an ad in the element only once it's viewable.
     // googletag.display("el1");
 
   }))
