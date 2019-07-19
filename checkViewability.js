@@ -80,8 +80,3 @@ const checkViewability = function(selector, percentage = 50, viewport = document
     isViewable
   })
 }
-
-/**
- * Just for the purposes of this demonstration, an onClick handler for the buttons.
- */
-const checkElement = selector => console.log(`${selector}: ${JSON.stringify(checkViewability(selector, 50, document.body, true), 0, 2)}`)
