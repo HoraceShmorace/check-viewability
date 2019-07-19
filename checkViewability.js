@@ -8,11 +8,28 @@
  *   in the given viewport to be considered viewable.
  * @param {String or Object} [viewport=document.body] Either a valid CSS selector or an object 
  *   reference to an HTML element
- * @returns {Boolean}
+ * @param {Boolean} [beVerbose=false] When false, the return value will be a boolean indicating whether
+ *   the specified element is viewable. When true, the return value will be an object containing properties
+ *   about the element, including whether it is viewable.
+ * @returns {Boolean} true/false, or {
+ *   element: {Null or HTMLElement},
+ *   viewablePercentage: {Float},
+ *   isViewable: {Boolean}
+ * }
  */
-const checkViewability = function(selector, percentage = 50, viewport = document.body) {
+const checkViewability = function(selector, percentage = 50, viewport = document.body, beVerbose = false) {
   const ERROR_MSG = 'Visibility Checker: Invalid selector passed.'
   const { max, min, round } = Math
+  
+  const returnTemplate = {
+    element: null,
+    viewablePercentage: 0,
+    isViewable: false
+  }
+  
+  const getReturnValue = returnValue => beVerbose
+    ? returnValue
+    : returnValue.isViewable
   
   const selectElement = selector => {
     switch (typeof selector) {
@@ -29,7 +46,7 @@ const checkViewability = function(selector, percentage = 50, viewport = document
 
   const element = selectElement(selector)
   
-  if (!element) return false
+  if (!element) return getReturnValue({... returnTemplate})
 
   const {
     x: elL,
@@ -42,7 +59,10 @@ const checkViewability = function(selector, percentage = 50, viewport = document
   const elementArea = elW * elH
   const { display, visibility, opacity } = getComputedStyle(element, null)
  
-  if (display === 'none' || visibility === 'hidden' || opacity < 0.02 || elementArea < 1) return false;
+  if (display === 'none' || visibility === 'hidden' || opacity < 0.02 || elementArea < 1) return getReturnValue({
+    ...returnTemplate,
+    element
+  });
                                                                      
   const viewportElement = selectElement(viewport)
   const {
@@ -56,10 +76,21 @@ const checkViewability = function(selector, percentage = 50, viewport = document
   const vpR = min(vpL + vpW, window.innerWidth)
   const vpB = min(vpT + vpH, window.innerHeight)
 
-  const minimumViewableArea = elementArea * percentage * 0.01
   const viewableLength = min(elR, vpR) - max(elL, vpL)
   const viewableWidth = min(elB, vpB) - max(elT, vpT)
   const viewableArea = max(0, viewableLength * viewableWidth)
+  const viewablePercentage = (viewableArea / elementArea * 100).toFixed(2)
+  const isViewable = viewablePercentage >= percentage
 
-  return viewableArea >= minimumViewableArea
+  return getReturnValue({
+    ...returnTemplate,
+    element,
+    viewablePercentage,
+    isViewable
+  })
 }
+
+/**
+ * Just for the purposes of this demonstration, an onClick handler for the buttons.
+ */
+const checkElement = selector => console.log(`${selector}: ${JSON.stringify(checkViewability(selector, 50, document.body, true), 0, 2)}`)
