@@ -6,7 +6,7 @@ A simple vanilla JavaScript function that calculates whether a certain percentag
 `checkViewability(selector[, percentage[, viewport[, beVerbose]]])`
 
 ### Arguments
-| Argument | Type | Default | Description
+| Argument | Type | Default | Description |
 ------------------------------------
 | selector | CSSSelector or HTMLElement | None| Required | Either a valid CSS selector or an object reference to an HTML element who's viewability will be measured
 | percentage | Number | 50| 1-100 |  The percentage of the selected element that must be visible in the given viewport to be considered viewable.
