@@ -29,7 +29,7 @@ const minimumViewablePercentage = 90
 checkViewability(element, minimumViewablePercentage, viewport)
 ```
 ## Use Case
-Trigger a side effect once an element is in view. The demonstrated side effect injects text into the tracked element. Another example would be to inject an ad into the div only once the div is viewable.
+Trigger a side effect once an element is in view. The demonstrated side effect injects text into the tracked element. Another example would be to inject an ad into a div only once the div is viewable.
 
 ```
 const handler = () => { window.doViewabilityCheck = true }
