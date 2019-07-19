@@ -11,7 +11,7 @@
  * @param {Boolean} [beVerbose=false] When false, the return value will be a boolean indicating whether
  *   the specified element is viewable. When true, the return value will be an object containing properties
  *   about the element, including whether it is viewable.
- * @returns {Boolean} true/false, or {
+ * @returns {Boolean or Object} true/false, or {
  *   element: {Null or HTMLElement},
  *   viewablePercentage: {Float},
  *   isViewable: {Boolean}
