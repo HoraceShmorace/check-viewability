@@ -16,7 +16,7 @@ checkViewability('#someElementId', 75, '#someParentElementId')
 
 // Passing element and viewport as object references to HTML elements
 const element = document.querySelector('#someElementId')
-const viewport = document.querySelector('#someParentElementId')
+const viewport = document.getElementById('someParentElementId')
 const minimumViewablePercentage = 90
 checkViewability(element, minimumViewablePercentage, viewport)
 ```
