@@ -46,7 +46,7 @@ An object with properties to configure viewability tracking for a single HTML el
 | onNotViewable | Function | `noop` | a function to call after the element becomes not viewable |
 | percentage | Number | 50 | a numeric value from 1-100 indicating the minimum visible area of the element to consider viewable. |
 
-## Usage
+## Use Case
 Trigger a side effect once an element is in view, and another when it is not in view. The demonstrated side effects inject text into the tracked element. Another example would be to inject an ad into an element only once the element is viewable.
 
 ```
