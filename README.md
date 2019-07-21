@@ -41,13 +41,13 @@ Trigger a side effect once an element is in view, and another when it is not in 
 
 ```
 <script>
-const tracker = nowyouseeme(100)
+const watcher = nowyouseeme(100)
 
-window.addEventListener('load', tracker.check)
-window.addEventListener('scroll', tracker.check)
-window.addEventListener('resize', tracker.check)
+window.addEventListener('load', watcher.check)
+window.addEventListener('scroll', watcher.check)
+window.addEventListener('resize', watcher.check)
 
-tracker.track({
+watcher.track({
   element: '#trackme',
   viewport: '#container,
   onViewable: element => { element.innerText = 'VIEWABLE!' },
@@ -55,7 +55,7 @@ tracker.track({
   percentage: 75
 })
 
-tracker.watch()
+watcher.watch()
 </script>
 ...
 <div id="container">
