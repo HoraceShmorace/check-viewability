@@ -3,7 +3,7 @@
  * @param {Number} interval Number indicating how often in milliseconds to check viewability of elements.
  * @returns {Object} An API of functions for configuring and controlling viewability tracking.
  */
-const viewability = (interval = 200) => {
+const nowyouseeme = (interval = 200) => {
   const MINIMUM_VIEWABLE_OPACITY = 0.02
   const MINIMUM_VIEWABLE_AREA = 1
   const NON_VIEWABLE_DISPLAY_VALUE = 'none'
@@ -13,7 +13,7 @@ const viewability = (interval = 200) => {
   /**
    * A flag indicating whether the timer function, Initialize to `true` to ensure that tracked elements are checked as they load
    */
-  let watchForViewabilityChanges = true
+  let checkForViewabilityChanges = true
   
   /**
    * The intervalID of the timer returned from setInterval in the `start` function.
@@ -95,16 +95,16 @@ const viewability = (interval = 200) => {
   /**
    * 
    */
-  const trigger = () => { watchForViewabilityChanges = true }
+  const check = () => { checkForViewabilityChanges = true }
 
   /**
    * Checks viewability for an array of elements on an interval
    */
   const watch = () => {
     intervalId = setInterval(() => checkIfHasWindow() && window.requestAnimationFrame(() => {
-      if (!watchForViewabilityChanges) return
+      if (!checkForViewabilityChanges) return
 
-      watchForViewabilityChanges = false
+      checkForViewabilityChanges = false
       
       const selectors = Object.keys(elementsToTrack)
       
@@ -185,5 +185,5 @@ const viewability = (interval = 200) => {
     return isViewable
   }
   
-  return { stop, track, trigger, watch }
+  return { check, stop, track, watch }
 }
