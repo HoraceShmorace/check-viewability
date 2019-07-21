@@ -22,7 +22,7 @@ The returned watcher is an API of functions for configuring and controlling view
 | `[watcher].track(options)` | Configures viewability tracking for a single HTML element. |
 | `[watcher].check()` | Sets an internal flag informs the interval timer that a viewability change might have occured. Intended primarily to be used as a callback for `window`'s `scroll`, `resize`, and `load` events. |
 | `[watcher].watch()` | Starts the interval timer to watch for changes to the viewability of the specified HTML elements. |
-| `[watcher].stop()` | Stops the interval timer so that changes to the viewability of the specified HTML elements is no longer watched. Ideal for when you've been tracking a DOM element rendered by a React component, but now the component is unmounting. |
+| `[watcher].stop()` | Stops the interval timer so that changes to the viewability of the specified HTML elements are no longer watched. Ideal for when you've been tracking a DOM element rendered by a React component, but now the component is unmounting. |
 
 
 ### \[watcher].track Options
