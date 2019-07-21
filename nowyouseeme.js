@@ -11,7 +11,7 @@ const nowyouseeme = (interval = 200) => {
   const INVALID_SELECTOR_ERROR_MSG = 'An invalid selector was passed:'
   
   /**
-   * A flag indicating whether watcher should check for changes to the viewability of the specified HTML elements.
+   * A flag indicating whether the watcher should check for changes to the viewability of the specified HTML elements.
    */
   let checkForViewabilityChanges = true
   
