@@ -1,14 +1,32 @@
 # nowyouseeme
 
-A simple vanilla JavaScript utility that allows for the tracking of the viewability of a specified list of elements, at a set interval, in a given viewport (i.e., another HTML element, which itself must be viewable within the visible bounds of the current window).
+A simple vanilla JavaScript utility that watches for changes in the viewability of a specified list of elements, at a set interval, in a given viewport (i.e., another HTML element, which itself must be viewable within the visible bounds of the current window).
 
 ## Usage
 ```
-const tracker = nowyouseeme(interval)
-tracker.track(options)
+const watcher = nowyouseeme(interval)
+watcher.track(options)
+watcher.watch()
 ```
-### Options
-A hash map of elements in which to track viewability, for which the key is the
+
+## API
+To create a watcher, call `nowyouseeme` passing the number of seconds between each checking interval.
+```
+const watcher = nowyouseeme(200)
+```
+
+The returned watcher is an API of functions for configuring and controlling viewability tracking on specified HTML elements.
+
+| function | description |
+|----------|-------------|
+| \[watcher].track() | Configures viewability tracking for a single HTML element. |
+| \[watcher].check() | Sets an internal flag informs the interval timer that a viewability change might have occured. Intended primarily to be used as a callback for `window`'s `scroll`, `resize`, and `load` events. |
+| \[watcher].watch() | Starts the interval timer to watch for changes to the viewability of the specified HTML elements. |
+| \[watcher].stop() | Stops the interval timer so that changes to the viewability of the specified HTML elements is no longer watched. |
+
+
+### \[watcher].track Options
+An object who's properties configure viewability tracking for a single HTML element.
 
 | property | type | default | description |
 |----------|------|---------|-------------|
