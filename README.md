@@ -9,7 +9,7 @@ Rather than responding directly to browser events, `nowyouseeme` uses a `setInte
 // Create a watcher
 const watcher = nowyouseeme(interval)
 
-// Trigger viewability checks when the window scroll
+// Trigger viewability checks when the window scrolls
 window.addEventListener('scroll', watcher.check)
 
 // Track a specific HTML element
