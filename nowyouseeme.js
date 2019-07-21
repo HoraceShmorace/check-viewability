@@ -1,5 +1,5 @@
 /**
- * Allows for the tracking of the viewability of a specified list of elements, at a set interval.
+ * Watches for changes in the viewability of a specified list of elements, at a set interval, within a given viewport.
  * @param {Number} interval Number indicating how often in milliseconds to check viewability of elements.
  * @returns {Object} An API of functions for configuring and controlling viewability tracking.
  */
@@ -11,7 +11,7 @@ const nowyouseeme = (interval = 200) => {
   const INVALID_SELECTOR_ERROR_MSG = 'An invalid selector was passed:'
   
   /**
-   * A flag indicating whether the timer function, Initialize to `true` to ensure that tracked elements are checked as they load
+   * A flag indicating whether watcher should check for changes to the viewability of the specified HTML elements.
    */
   let checkForViewabilityChanges = true
   
