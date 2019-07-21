@@ -36,7 +36,7 @@ The returned watcher is an API of functions for configuring and controlling view
 
 
 ### \[watcher].track Options
-An object who's properties configure viewability tracking for a single HTML element.
+An object with properties to configure viewability tracking for a single HTML element.
 
 | property | type | default | description |
 |----------|------|---------|-------------|
