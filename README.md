@@ -9,6 +9,7 @@ tracker.track(options)
 ```
 ### Options
 A hash map of elements in which to track viewability, for which the key is the
+
 | property | type | default | description |
 |----------|------|---------|-------------|
 | element | String or Object | None. Required. | a reference to the HTMLElement object of the element to track |
