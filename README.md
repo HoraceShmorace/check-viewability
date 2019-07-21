@@ -40,8 +40,8 @@ An object with properties to configure viewability tracking for a single HTML el
 
 | property | type | default | description |
 |----------|------|---------|-------------|
-| element | String or Object | None. Required. | A CSS selector selector, or a reference to an HTMLElement object. |
-| viewport | String or Object | `document.body` | A CSS selector selector, or a reference to an HTMLElement object. |
+| element | String or HTMLElement | None. Required. | A CSS selector, or a reference to an HTMLElement object. |
+| viewport | String or HTMLElement | `document.body` | A CSS selector, or a reference to an HTMLElement object. |
 | onViewable | Function | None. Required. | a function to call after the element becomes viewable |
 | onNotViewable | Function | `noop` | a function to call after the element becomes not viewable |
 | percentage | Number | 50 | a numeric value from 1-100 indicating the minimum visible area of the element to consider viewable. |
