@@ -2,7 +2,7 @@
 
 A simple vanilla JavaScript utility that watches for changes in the viewability of a specified list of elements, at a set interval, in a given viewport (i.e., another HTML element, which itself must be viewable within the visible bounds of the current window).
 
-Rather than responding directly to browser events, `nowyouseeme` uses a `setInterval` timer, which is more performant.
+Rather than responding directly to browser events, `nowyouseeme` uses a `setInterval` timer, which is significantly more performant.
 
 ## Usage
 ```
