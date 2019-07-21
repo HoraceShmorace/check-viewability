@@ -40,7 +40,7 @@ An object with properties to configure viewability tracking for a single HTML el
 
 | property | type | default | description |
 |----------|------|---------|-------------|
-| element | String or Object | None. Required. | a reference to the HTMLElement object of the element to track |
+| element | String or Object | None. Required. | A CSS selector selector, or a reference to an HTMLElement object. |
 | viewport | String or Object | `document.body` | A CSS selector selector, or a reference to an HTMLElement object. |
 | onViewable | Function | None. Required. | a function to call after the element becomes viewable |
 | onNotViewable | Function | `noop` | a function to call after the element becomes not viewable |
