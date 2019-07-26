@@ -16,7 +16,7 @@ const nowyouseeme = (interval = 200) => {
   let checkForViewabilityChanges = true
   
   /**
-   * The intervalID of the timer returned from setInterval in the `start` function.
+   * The intervalID of the timer returned from setInterval in the `watch` function.
    * @type {Number}
    */
   let intervalId
