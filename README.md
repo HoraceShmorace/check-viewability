@@ -7,7 +7,7 @@ Rather than responding directly to browser events, `nowyouseeme` uses a `setInte
 ## Usage
 ```
 // Create a watcher
-const watcher = nowyouseeme(interval)
+const watcher = nowyouseeme(100)
 
 // Trigger viewability checks when the window scrolls
 window.addEventListener('scroll', watcher.check)
@@ -20,7 +20,7 @@ watcher.watch()
 ```
 
 ## API
-To create a watcher, call `nowyouseeme()`, optionally passing the number of milliseconds between each checking interval (the default is 200).
+To create a watcher, call `nowyouseeme()`, optionally passing the number of milliseconds between each interval (the default is 200).
 ```
 const watcher = nowyouseeme(100)
 ```
