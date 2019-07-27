@@ -20,9 +20,9 @@ watcher.watch()
 ```
 
 ## API
-To create a watcher, call `nowyouseeme` passing the number of seconds between each checking interval.
+To create a watcher, call `nowyouseeme()`, optionally passing the number of milliseconds between each checking interval (the default is 200).
 ```
-const watcher = nowyouseeme(200)
+const watcher = nowyouseeme(100)
 ```
 
 The returned watcher is an API of functions for configuring and controlling viewability tracking on specified HTML elements.
