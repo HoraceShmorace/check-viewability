@@ -3,7 +3,7 @@
  * @param {Number} interval Number indicating how often in milliseconds to check viewability of elements.
  * @returns {Object} An API of functions for configuring and controlling viewability tracking.
  */
-const nowyouseeme = (interval = 200) => {
+const nowyouseeme = (interval = 200, autoWatch = true) => {
   const MINIMUM_VIEWABLE_OPACITY = 0.02
   const MINIMUM_VIEWABLE_AREA = 1
   const NON_VIEWABLE_DISPLAY_VALUE = 'none'
@@ -90,7 +90,7 @@ const nowyouseeme = (interval = 200) => {
         isViewable: null
       }
 
-      if (!intervalId) watch()
+      if (autoWatch && !intervalId) watch()
     }
   }
 
@@ -104,8 +104,9 @@ const nowyouseeme = (interval = 200) => {
    */
   const watch = () => {
     const hasElementsToTrack = Object.entries(elementsToTrack).length > 0
+    const allowWatcher = hasElementsToTrack || autoWatch
     
-    if (!hasElementsToTrack || !checkIfHasWindow()) {
+    if (!allowWatcher || !checkIfHasWindow()) {
       intervalId = null
       return
     }
