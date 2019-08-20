@@ -89,6 +89,8 @@ const nowyouseeme = (interval = 200) => {
         onNotViewable,
         isViewable: null
       }
+
+      if (!intervalId) watch()
     }
   }
 
@@ -101,7 +103,14 @@ const nowyouseeme = (interval = 200) => {
    * Checks viewability for an array of elements on an interval
    */
   const watch = () => {
-    intervalId = setInterval(() => checkIfHasWindow() && window.requestAnimationFrame(() => {
+    const hasElementsToTrack = Object.entries(elementsToTrack).length > 0
+    
+    if (!hasElementsToTrack || !checkIfHasWindow()) {
+      intervalId = null
+      return
+    }
+
+    intervalId = setInterval(() => window.requestAnimationFrame(() => {
       if (!checkForViewabilityChanges) return
 
       checkForViewabilityChanges = false
