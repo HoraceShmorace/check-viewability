@@ -49,7 +49,7 @@ const nowyouseeme = (interval = 200, autoWatch = true) => {
   const selectElement = selector => {
     switch (typeof selector) {
       case 'string':
-        return document.querySelector(selector) || throw `${INVALID_SELECTOR_ERROR_MSG} "${selector}".`
+        return document.querySelector(selector)
         break;
       case 'object':
         return selector
